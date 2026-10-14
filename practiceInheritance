@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -41,7 +42,7 @@ private:
 
 public:
     Student() : People() {
-        mssv = "Unknown";
+        mssv = "N/A";
         yearEntrance = 0;
     }
 
@@ -99,23 +100,30 @@ int main() {
     FIEStudent f2("079345678912", "Thu Ha", "Dong Nai",
                   "SV2048", 2023, 85);
 
-    cout << "=== People mac dinh ===" << endl;
+    cout << "--- People p1 ---" << endl;
     p1.displayInfo();
+    cout << endl;
 
-    cout << "\n=== People co tham so ===" << endl;
+    cout << "--- People p2 ---" << endl;
     p2.displayInfo();
+    cout << endl;
 
-    cout << "\n=== Student mac dinh ===" << endl;
+    cout << "--- Student s1 ---" << endl;
     s1.displayInfo();
+    cout << endl;
 
-    cout << "\n=== Student co tham so ===" << endl;
+    cout << "--- Student s2 ---" << endl;
     s2.displayInfo();
+    cout << endl;
 
-    cout << "\n=== FIEStudent mac dinh ===" << endl;
+    cout << "--- FIEStudent f1 ---" << endl;
     f1.displayInfo();
+    cout << endl;
 
-    cout << "\n=== FIEStudent co tham so ===" << endl;
+    cout << "--- FIEStudent f2 ---" << endl;
     f2.displayInfo();
+    cout << endl;
 
     return 0;
 }
+```
