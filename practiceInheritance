@@ -1,0 +1,121 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class People {
+private:
+    string cccd, name, address;
+
+public:
+    People() {
+        cccd = "00000000000000";
+        name = "Unknown";
+        address = "Unknown";
+    }
+
+    People(string c, string n, string a) {
+        cccd = c;
+        name = n;
+        address = a;
+    }
+
+    string getCCCD() const { return cccd; }
+    string getName() const { return name; }
+    string getAddress() const { return address; }
+
+    void setCCCD(string c) { cccd = c; }
+    void setName(string n) { name = n; }
+    void setAddress(string a) { address = a; }
+
+    void displayInfo() const {
+        cout << "CCCD: " << cccd << endl;
+        cout << "Name: " << name << endl;
+        cout << "Address: " << address << endl;
+    }
+};
+
+class Student : public People {
+private:
+    string mssv;
+    int yearEntrance;
+
+public:
+    Student() : People() {
+        mssv = "Unknown";
+        yearEntrance = 0;
+    }
+
+    Student(string c, string n, string a, string m, int y)
+        : People(c, n, a) {
+        mssv = m;
+        yearEntrance = y;
+    }
+
+    string getMSSV() const { return mssv; }
+    int getYearEntrance() const { return yearEntrance; }
+
+    void setMSSV(string m) { mssv = m; }
+    void setYearEntrance(int y) { yearEntrance = y; }
+
+    void displayInfo() const {
+        People::displayInfo();
+        cout << "MSSV: " << mssv << endl;
+        cout << "Year Entrance: " << yearEntrance << endl;
+    }
+};
+
+class FIEStudent : public Student {
+private:
+    int credits;
+
+public:
+    FIEStudent() : Student() {
+        credits = 0;
+    }
+
+    FIEStudent(string c, string n, string a, string m, int y, int cr)
+        : Student(c, n, a, m, y) {
+        credits = cr;
+    }
+
+    int getCredits() const { return credits; }
+    void setCredits(int cr) { credits = cr; }
+
+    void displayInfo() const {
+        Student::displayInfo();
+        cout << "Credits: " << credits << endl;
+    }
+};
+
+int main() {
+    People p1;
+    People p2("079123456789", "Minh Anh", "Can Tho");
+
+    Student s1;
+    Student s2("079234567891", "Hoang Nam", "Binh Duong",
+               "SV1025", 2024);
+
+    FIEStudent f1;
+    FIEStudent f2("079345678912", "Thu Ha", "Dong Nai",
+                  "SV2048", 2023, 85);
+
+    cout << "=== People mac dinh ===" << endl;
+    p1.displayInfo();
+
+    cout << "\n=== People co tham so ===" << endl;
+    p2.displayInfo();
+
+    cout << "\n=== Student mac dinh ===" << endl;
+    s1.displayInfo();
+
+    cout << "\n=== Student co tham so ===" << endl;
+    s2.displayInfo();
+
+    cout << "\n=== FIEStudent mac dinh ===" << endl;
+    f1.displayInfo();
+
+    cout << "\n=== FIEStudent co tham so ===" << endl;
+    f2.displayInfo();
+
+    return 0;
+}
