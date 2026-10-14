@@ -68,3 +68,64 @@ public:
         cout << "Luong: " << tinhLuong() << endl;
     }
 };
+
+
+class MonthlyEmployee : public Employee {
+private:
+    double luongCoBan;
+    double phuCap;
+    double heSoThuong;
+
+public:
+    MonthlyEmployee() : Employee() {
+        luongCoBan = 0;
+        phuCap = 0;
+        heSoThuong = 0;
+    }
+
+    MonthlyEmployee(string c, string s, string a,
+                    double lcb, double pc, double hs)
+        : Employee(c, s, a) {
+        luongCoBan = lcb;
+        phuCap = pc;
+        heSoThuong = hs;
+    }
+
+    double getLuongCoBan() const { return luongCoBan; }
+    double getPhuCap() const { return phuCap; }
+    double getHeSoThuong() const { return heSoThuong; }
+
+    void setLuongCoBan(double lcb) { luongCoBan = lcb; }
+    void setPhuCap(double pc) { phuCap = pc; }
+    void setHeSoThuong(double hs) { heSoThuong = hs; }
+
+    double tinhLuong() const {
+        return luongCoBan + phuCap + luongCoBan * heSoThuong;
+    }
+
+    void displayInfo() const {
+        Employee::displayInfo();
+        cout << "Luong co ban: " << luongCoBan << endl;
+        cout << "Phu cap: " << phuCap << endl;
+        cout << "He so thuong: " << heSoThuong << endl;
+        cout << "Luong: " << tinhLuong() << endl;
+    }
+};
+
+int main() {
+    Employee e1("079123456789", "0901002003", "Can Tho");
+
+    HourlyEmployee h1("079876543210", "0912345678",
+                      "Ha Noi", 160, 50000);
+
+    MonthlyEmployee m1("079987654321", "0987654321",
+                       "Da Nang", 15000000, 2000000, 1.2);
+
+    e1.displayInfo();
+
+    h1.displayInfo();
+
+    m1.displayInfo();
+
+    return 0;
+}
