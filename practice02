@@ -1,0 +1,70 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee {
+protected:
+    string cccd, sdt, address;
+
+public:
+    Employee() {
+        cccd = "";
+        sdt = "";
+        address = "";
+    }
+
+    Employee(string c, string s, string a) {
+        cccd = c;
+        sdt = s;
+        address = a;
+    }
+
+    string getCCCD() const { return cccd; }
+    string getSDT() const { return sdt; }
+    string getAddress() const { return address; }
+
+    void setCCCD(string c) { cccd = c; }
+    void setSDT(string s) { sdt = s; }
+    void setAddress(string a) { address = a; }
+
+    void displayInfo() const {
+        cout << "CCCD: " << cccd << endl;
+        cout << "SDT: " << sdt << endl;
+        cout << "Address: " << address << endl;
+    }
+};
+
+class HourlyEmployee : public Employee {
+private:
+    int soGioLamViec;
+    double donGia;
+
+public:
+    HourlyEmployee() : Employee() {
+        soGioLamViec = 0;
+        donGia = 0;
+    }
+
+    HourlyEmployee(string c, string s, string a, int gio, double gia)
+        : Employee(c, s, a) {
+        soGioLamViec = gio;
+        donGia = gia;
+    }
+
+    int getSoGioLamViec() const { return soGioLamViec; }
+    double getDonGia() const { return donGia; }
+
+    void setSoGioLamViec(int gio) { soGioLamViec = gio; }
+    void setDonGia(double gia) { donGia = gia; }
+
+    double tinhLuong() const {
+        return soGioLamViec * donGia;
+    }
+
+    void displayInfo() const {
+        Employee::displayInfo();
+        cout << "So gio lam viec: " << soGioLamViec << endl;
+        cout << "Don gia: " << donGia << endl;
+        cout << "Luong: " << tinhLuong() << endl;
+    }
+};
